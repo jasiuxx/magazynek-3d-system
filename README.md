@@ -1,3 +1,5 @@
+[🇬🇧 Read in English](README.md)
+
 # Magazynek 3D - System zarządzania wydrukami
 
 System do zarządzania magazynem wydruków 3D z interfejsem Tkinter i integracją z Django REST API.
