@@ -1,4 +1,4 @@
-[🇬🇧 Read in English](README.md)
+[🇬🇧 Read in English](README-EN.md)
 
 # Magazynek 3D - System zarządzania wydrukami
 
