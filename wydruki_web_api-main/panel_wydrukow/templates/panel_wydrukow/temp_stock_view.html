@@ -1,0 +1,33 @@
+{% extends 'panel_wydrukow/base.html' %}
+{% load static %}
+
+{% block title %}Tymczasowy Widok Stanu - Magazyn Komponentów{% endblock %}
+
+{% block header %}
+    <div class="amazon-page-header-container">
+        <span class="amazon-header-main">
+            <i class="fas fa-images mr-2"></i>Tymczasowy Widok Miniatur
+        </span>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="amazon-section">
+    <div class="amazon-section-header">
+        <span class="amazon-section-title">Miniatury Produktów</span>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; padding: 10px;">
+        {% if wydruki %}
+            {% for wydruk in wydruki %}
+                <div style="border: 1px solid #ddd; padding: 5px; text-align: center; background-color: #fff;">
+                    <img src="{{ settings.PRODUCT_IMAGES_URL }}{{ wydruk.kod }}.png" alt="miniaturka {{ wydruk.kod }}" style="display: block; max-width: none; height: auto;" onerror="this.src='{% static 'panel_wydrukow/img/no-image.png' %}'; this.onerror=null;">
+                    <p style="margin-top: 5px; font-size: 0.9em; color: #333;">{{ wydruk.kod }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="amazon-muted">Brak produktów do wyświetlenia.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %} 
