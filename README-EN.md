@@ -144,3 +144,24 @@ System includes the following screens:
 - **Product info** with image
 - **Success screen** after confirmation
 - **Error screen** with clear messages
+  
+
+
+Non-Commercial License
+
+
+Permission is granted to use, copy, modify, and distribute this software for 
+NON-COMMERCIAL purposes only, including:
+- Educational use
+- Research purposes  
+- Personal projects
+- Portfolio demonstration
+
+Commercial use, including but not limited to:
+- Use in commercial products or services
+- Integration into commercial software
+- Revenue-generating activities
+
+is PROHIBITED without explicit written permission from the author.
+
+
