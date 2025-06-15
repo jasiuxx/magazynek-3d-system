@@ -186,6 +186,9 @@ System zawiera następujące ekrany:
 
   ![image](https://github.com/user-attachments/assets/f619868e-6274-4b4c-8f46-0c2e7f7a0782)
 
+  <img width="670" alt="image" src="https://github.com/user-attachments/assets/2469f3bc-6769-4e09-974c-5cd441e007e5" />
+
+
 - **Dashboard**
 
   ![image](https://github.com/user-attachments/assets/b41a67fe-c248-4705-a1dd-bff8fe364fa5)
@@ -204,17 +207,9 @@ System zawiera następujące ekrany:
 
 <img width="451" alt="image" src="https://github.com/user-attachments/assets/9d6d9b23-93a5-45ef-b381-5d32eade06ef" />
 
-- **Baza danych**
 
-
-  <img width="530" alt="image" src="https://github.com/user-attachments/assets/5143b3ae-7811-4792-a15e-d4ac905a2c43" />
-
-  <img width="488" alt="image" src="https://github.com/user-attachments/assets/ddafd8c0-317f-4e61-b495-3c1fe0033f11" />
-
-  <img width="713" alt="image" src="https://github.com/user-attachments/assets/35416cfe-eeb1-4f45-beee-f9ee404a39c4" />
-
-
-
+# Kierunek rozwoju:
+Chcę się skupić na rozwoju panelu administratora w Django ,aby szef magazynu mógł dostosowywać funkcję pod siebie. Chciałbym aby magazyn 360 był jak najbardziej uniwersalny pod potrzeby klientów.
 
 
 ---
