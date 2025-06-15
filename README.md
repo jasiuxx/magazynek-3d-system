@@ -1,7 +1,7 @@
 
 [🇬🇧 Read in English](README-EN.md)
 
-# Magazynek 3D – System zarządzania wydrukami
+#Magazyn 360
 
 Kompletny system do zarządzania magazynem składający się z aplikacji terminalowej (Raspberry Pi) oraz systemu webowego (Django) do administracji magazynem.
 
