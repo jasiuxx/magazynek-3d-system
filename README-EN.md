@@ -49,26 +49,39 @@ A complete warehouse management system consisting of a terminal application (Ras
 
 ## 📁 Project Structure
 
-```
 magazynek-3d-system/
-├── raspberry-pi-terminal/ # Warehouse terminal app
-│   ├── main.py # Main application logic
-│   ├── ui_manager.py # Tkinter fullscreen UI
-│   ├── barcode_scanner.py # USB scanner handling (evdev)
-│   ├── api_connector.py # Django REST API communication
-│   ├── logo.png # Company logo
-│   └── requirements.txt # Python dependencies
-├── django-backend/ # Django web system
-│   ├── wydruki_web_api/ # Main Django project
-│   ├── panel_wydrukow/ # Warehouse app
-│   │   ├── models.py # Models: products, employees, retrievals
-│   │   ├── views.py # API and web views
+├── raspberry-pi-terminal/        # Terminal app (Raspberry Pi)
+│   ├── main.py                   # Main application logic
+│   ├── ui_manager.py             # Tkinter GUI interface
+│   ├── barcode_scanner.py        # USB scanner handler
+│   ├── api_connector.py          # Django API communication
+│   ├── logo.png                  # Logo
+│   └── requirements.txt          # Python dependencies
+│
+├── django-backend/               # Web system (Django)
+│   ├── wydruki_web_api/          # Main Django project
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   └── wsgi.py
+│   ├── panel_wydrukow/           # Warehouse app
+│   │   ├── models.py             # Products, employees, withdrawals
+│   │   ├── views.py              # API and web views
 │   │   ├── templates/
-│   │   │   └── scan.html # Mobile scanning page
-│   │   └── static/ # Static files
+│   │   │   └── scan.html         # Mobile scanning page
+│   │   └── static/               # CSS, JS, images
 │   └── requirements.txt
-└── README.md
-```
+│
+├── media-server/                 # Image server 
+│   ├── apache-config/            # Apache HTTPS config
+│   └── wydruki/                  # Product images directory
+│       ├── PROD_001.png
+│       ├── FRAME_002.png
+│       └── ...
+│
+├── README-PL.md                  # Polish documentation
+├── README-EN.md                  # English documentation
+└── .env.example                  # Environment template
+
 
 ---
 
