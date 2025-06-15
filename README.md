@@ -51,7 +51,7 @@ text
 ---
 
 ## 📁 Struktura projektu
-
+```
 
 magazynek-3d-system/
 ├── raspberry-pi-terminal/        # Aplikacja terminala (Raspberry Pi)
@@ -86,7 +86,7 @@ magazynek-3d-system/
 ├── README-EN.md                  # Dokumentacja po angielsku
 └── .env.example                  # Szablon zmiennych środowiskowych
 
-
+```
 
 text
 
