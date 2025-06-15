@@ -52,6 +52,8 @@ text
 
 ## 📁 Struktura projektu
 
+## 📁 Struktura projektu
+
 magazynek-3d-system/
 ├── raspberry-pi-terminal/        # Aplikacja terminala (Raspberry Pi)
 │   ├── main.py                   # Główna logika aplikacji
@@ -84,6 +86,7 @@ magazynek-3d-system/
 ├── README-PL.md                  # Dokumentacja po polsku
 ├── README-EN.md                  # Dokumentacja po angielsku
 └── .env.example                  # Szablon zmiennych środowiskowych
+
 
 
 text
@@ -149,7 +152,7 @@ System zawiera następujące ekrany:
 - **Ekran powitalny** z instrukcją obsługi
   
   <img width="699" alt="image" src="https://github.com/user-attachments/assets/820b1171-18cf-42d9-bbf9-b0eb3ede15e4" />
-- **Skanowanie przez przeglądarę
+- **Skanowanie przez przeglądarę**
 
   ![image](https://github.com/user-attachments/assets/c68b124b-475b-46bf-9de2-c6bf0b72c5a6)
 
@@ -158,10 +161,19 @@ System zawiera następujące ekrany:
 
   <img width="701" alt="image" src="https://github.com/user-attachments/assets/f2b7c8a8-ae0e-4283-9e3a-0d19c539a4dd" />
 
+
+- **Skanowanie produktu
+
+  ![image](https://github.com/user-attachments/assets/20c9d9a0-4b9c-4a9f-b88f-78bde61911f9)
+
   
 - **Informacje o produkcie** ze zdjęciem
 
   <img width="704" alt="image" src="https://github.com/user-attachments/assets/593fc68c-8265-4276-a27e-ce90eab2ded2" />
+
+- **Potwierdzenie kodu oraz Ekran sukcesu** po potwierdzeniu transakcji
+
+  <img width="697" alt="image" src="https://github.com/user-attachments/assets/f49b7014-a46c-46bb-a973-1a4a074eb1d6" />
 
 
   
