@@ -138,13 +138,37 @@ The system also supports mobile browser scanning:
 
 ## 📸 Screenshots
 
-The system includes these screens:
 - **Welcome screen** with instructions  
+  <img width="699" alt="image" src="https://github.com/user-attachments/assets/820b1171-18cf-42d9-bbf9-b0eb3ede15e4" />
+- **Mobile scanning**  
+  ![image](https://github.com/user-attachments/assets/c68b124b-475b-46bf-9de2-c6bf0b72c5a6)
 - **Employee ID confirmation**  
+  <img width="701" alt="image" src="https://github.com/user-attachments/assets/f2b7c8a8-ae0e-4283-9e3a-0d19c539a4dd" />
 - **Product scanning**  
+  ![image](https://github.com/user-attachments/assets/20c9d9a0-4b9c-4a9f-b88f-78bde61911f9)
 - **Product information** with image  
-- **Transaction confirmation** and success screen  
+  <img width="704" alt="image" src="https://github.com/user-attachments/assets/593fc68c-8265-4276-a27e-ce90eab2ded2" />
+- **Transaction confirmation & success screen**  
+  <img width="697" alt="image" src="https://github.com/user-attachments/assets/f49b7014-a46c-46bb-a973-1a4a074eb1d6" />
 - **Error screens** with clear messages  
+  <img width="700" alt="image" src="https://github.com/user-attachments/assets/7db2f601-a8e4-421e-9527-51dcf06565f9" />  
+  <img width="701" alt="image" src="https://github.com/user-attachments/assets/295cc931-86af-42c2-bf18-23229713499a" />
+
+---
+
+# Web System Views
+
+- **Registered withdrawal**  
+  ![image](https://github.com/user-attachments/assets/f619868e-6274-4b4c-8f46-0c2e7f7a0782)  
+  <img width="670" alt="image" src="https://github.com/user-attachments/assets/2469f3bc-6769-4e09-974c-5cd441e007e5" />
+- **Dashboard**  
+  ![image](https://github.com/user-attachments/assets/b41a67fe-c248-4705-a1dd-bff8fe364fa5)
+- **Product list**  
+  ![image](https://github.com/user-attachments/assets/43d203a4-a9e7-409c-b1ec-33ec621b0776)
+- **Add/Edit product**  
+  ![image](https://github.com/user-attachments/assets/b4b5b546-32e4-458c-bac7-2f7cb75d850b)
+- **Image server**  
+  <img width="451" alt="image" src="https://github.com/user-attachments/assets/9d6d9b23-93a5-45ef-b381-5d32eade06ef" />
 
 ---
 
