@@ -155,7 +155,16 @@ System zawiera następujące ekrany:
 
   
 - **Potwierdzenie identyfikatora** pracownika
+
+  <img width="701" alt="image" src="https://github.com/user-attachments/assets/f2b7c8a8-ae0e-4283-9e3a-0d19c539a4dd" />
+
+  
 - **Informacje o produkcie** ze zdjęciem
+
+  <img width="704" alt="image" src="https://github.com/user-attachments/assets/593fc68c-8265-4276-a27e-ce90eab2ded2" />
+
+
+  
 - **Ekran sukcesu** po potwierdzeniu transakcji
 - **Obsługa błędów** z jasnymi komunikatami
 
