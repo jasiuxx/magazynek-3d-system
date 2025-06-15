@@ -168,7 +168,8 @@ The system also supports mobile browser scanning:
 - **Add/Edit product**  
   ![image](https://github.com/user-attachments/assets/b4b5b546-32e4-458c-bac7-2f7cb75d850b)
 - **Image server**  
-  <img width="451" alt="image" src="https://github.com/user-attachments/assets/9d6d9b23-93a5-45ef-b381-5d32eade06ef" />
+  ![image](https://github.com/user-attachments/assets/cacd4e0d-827b-47c4-83e9-e014f7e1e65b)
+
 
 ---
 
