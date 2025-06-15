@@ -1,49 +1,140 @@
+
 [🇬🇧 Read in English](README-EN.md)
 
-# Magazynek 3D - System zarządzania wydrukami
+# Magazynek 3D – System zarządzania wydrukami
 
-System do zarządzania magazynem wydruków 3D z interfejsem Tkinter i integracją z Django REST API.
+Kompletny system do zarządzania magazynem składający się z aplikacji terminalowej (Raspberry Pi) oraz systemu webowego (Django) do administracji magazynem.
 
-## 🔧 Technologie
+text
+---
 
-- **Backend:** Python, Django REST Framework
-- **Frontend:** Tkinter (desktop GUI)
-- **Baza danych:** MySQL/PostgreSQL
-- **Skanowanie:** evdev, USB barcode scanners
-- **API:** REST, Token authentication
-- **Deployment:** Raspberry Pi 4
+## 🏗️ Architektura systemu
 
-## ⚙️ Funkcjonalności
+### **🖥️ Aplikacja terminala magazynowego (Raspberry Pi)**
+- **Urządzenie:** Raspberry Pi 4 z ekranem dotykowym
+- **Interfejs:** Python Tkinter w trybie pełnoekranowym
+- **Skanowanie:** Fizyczne skanery USB (evdev) + obsługa kodów kreskowych lub skaner mobilny w telefonie
+- **Przeznaczenie:** Terminal dla pracowników pobierających produkty z magazynu
 
-- Skanowanie kodów kreskowych (USB/mobilna kamera)
-- Autoryzacja dwuetapowa (pracownik → produkt → potwierdzenie)
-- Wyświetlanie zdjęć produktów
-- Rejestracja pobrań w czasie rzeczywistym
-- Cache'owanie danych API
-- Obsługa błędów sieciowych
+### **🌐 System webowy Django**
+- **Backend:** Django REST Framework
+- **Frontend:** Panel administracyjny + interfejs HTML5 do skanowania mobilnego
+- **API:** REST endpoints z autoryzacją tokenami
+- **Przeznaczenie:** Zarządzanie magazynem, produktami, pobraniami
 
 
+### **📷 Serwer obrazów produktów**
+- **Serwer:** Apache/nginx na dedykowanym urządzeniu 
+- **Protokół:** HTTPS z self-signed certificate dla sieci lokalnej
+- **Struktura:** `/wydruki/{kod_produktu}.png` - automatyczne mapowanie kodów na pliki
+- **Integracja:** Automatyczne wyświetlanie zdjęć produktów w interfejsie terminala
+- System webowy podczas tworzenia nowego produktu przesyła wgrane zdjęcie na serwer apache i jednocześnie zmienia format na .png oraz wymiary na 400x400
+- Dzięki temu podczas obsługi produktów widać ich obraz
+
+
+---
+
+## 🔄 Przepływ operacji magazynowej
+
+### **Workflow na terminalu Raspberry Pi:**
+1. **Autoryzacja:** Pracownik skanuje swój identyfikator
+2. **Wybór produktu:** Skanowanie kodu kreskowego produktu
+3. **Potwierdzenie:** Ponowne skanowanie identyfikatora pracownika
+4. **Rejestracja:** System automatycznie rejestruje pobranie w bazie Django
+
+### **Zarządzanie przez system webowy:**
+- Dodawanie/edycja produktów i pracowników
+- Śledzenie stanów magazynowych w czasie rzeczywistym
+- Historia pobrań i raportowanie
+- Skanowanie mobilne przez przeglądarkę (HTML5)
+
+---
 
 ## 📁 Struktura projektu
 
-- `main.py` - Główna logika aplikacji
-- `ui_manager.py` - Interfejs użytkownika Tkinter
-- `barcode_scanner.py` - Obsługa skanera USB
-- `api_barcode_scanner.py` - Obsługa skanera na telefonie
-- `api_connector.py` - Komunikacja z Django API
-- `requirements.txt` - Zależności Python
+magazynek-3d-system/
+├── raspberry-pi-terminal/ # Aplikacja terminala magazynowego
+│ ├── main.py # Główna logika aplikacji
+│ ├── ui_manager.py # Interfejs Tkinter (pełny ekran)
+│ ├── barcode_scanner.py # Obsługa skanera USB (evdev)
+│ ├── api_connector.py # Komunikacja z Django REST API
+│ ├── logo.png # Logo firmy HKL Dekoracja Okien
+│ └── requirements.txt # Zależności Python
+├── django-backend/ # System webowy Django
+│ ├── wydruki_web_api/ # Główny projekt Django
+│ ├── panel_wydrukow/ # Aplikacja magazynowa
+│ │ ├── models.py # Modele: produkty, pracownicy, pobrania
+│ │ ├── views.py # Widoki API i webowe
+│ │ ├── templates/ # Szablony HTML
+│ │ │ └── scan.html # Strona skanowania mobilnego
+│ │ └── static/ # Pliki statyczne
+│ └── requirements.txt
+└── README.md
 
-## 🛡️ Bezpieczeństwo
+text
 
-- Tokeny API przechowywane w zmiennych środowiskowych
-- Autoryzacja dwuetapowa użytkowników
-- Walidacja danych wejściowych
-- Obsługa self-signed SSL certificates
+---
 
-## 📸 Screenshots
+## ⚙️ Funkcjonalności aplikacji terminalowej
 
-*Dodaj tutaj zrzuty ekranu aplikacji*
+### **Interfejs użytkownika:**
+- **Ekran powitalny** z instrukcją obsługi krok po kroku
+- **Automatyczne wykrywanie skanera** USB z filtrowaniem urządzeń
+- **Wyświetlanie zdjęć produktów** pobieranych z serwera mediów
+- **Walidacja dwuetapowa** identyfikatora pracownika
+- **Obsługa błędów** z komunikatami w języku polskim
+- **Reset aplikacji** kodem specjalnym "00"
 
-## 🤝 Kontakt
+### **Komponenty techniczne:**
+- `main.py` – orchestracja aplikacji i logika biznesowa
+- `ui_manager.py` – interfejs graficzny z ekranami stanu
+- `barcode_scanner.py` – obsługa skanera z mapowaniem kodów ASCII
+-  `api_barcode_scanner.py` – obsługa skanera z przeglądaki
+- `api_connector.py` – komunikacja REST API z cache'owaniem
 
-Projekt stworzony jako część portfolia programistycznego.
+---
+
+## 🌐 System webowy Django
+
+### **REST API Endpoints:**
+POST /api/scan-barcode/ # Zapis kodu z skanowania mobilnego
+GET /api/product/<kod>/ # Informacje o produkcie
+GET /api/employee/<id>/ # Dane pracownika
+POST /api/terminal/pobranie/ # Rejestracja pobrania produktu
+GET /api/dashboard/stats/ # Statystyki systemu (healthcheck)
+
+text
+
+### **Autoryzacja:**
+Wszystkie endpointy wymagają nagłówka:
+Authorization: Token <twój_token>
+
+text
+
+### **Panel administracyjny:**
+- Zarządzanie produktami 
+- Historia pobrań z datami i ilościami
+- Zarządzanie stanami magazynowymi( dodawanie,usuwanie,edycja)
+
+
+
+
+## 📱 Skanowanie mobilne
+
+System obsługuje również skanowanie przez przeglądarkę mobilną:
+- **URL:** `https://your-server:8000/scan/`
+- **Technologia:** HTML5 + ZXing-js
+- **Wsparcie:** iOS Safari, Android Chrome
+- **Funkcje:** Wybór kamery, celownik, obsługa błędów
+
+
+## 📸 Zrzuty ekranu
+
+System zawiera następujące ekrany:
+- **Ekran powitalny** z instrukcją obsługi
+- **Potwierdzenie identyfikatora** pracownika
+- **Informacje o produkcie** ze zdjęciem
+- **Ekran sukcesu** po potwierdzeniu transakcji
+- **Obsługa błędów** z jasnymi komunikatami
+
+---
