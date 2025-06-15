@@ -52,7 +52,6 @@ text
 
 ## 📁 Struktura projektu
 
-## 📁 Struktura projektu
 
 magazynek-3d-system/
 ├── raspberry-pi-terminal/        # Aplikacja terminala (Raspberry Pi)
@@ -175,10 +174,13 @@ System zawiera następujące ekrany:
 
   <img width="697" alt="image" src="https://github.com/user-attachments/assets/f49b7014-a46c-46bb-a973-1a4a074eb1d6" />
 
-
-  
-- **Ekran sukcesu** po potwierdzeniu transakcji
 - **Obsługa błędów** z jasnymi komunikatami
+
+  <img width="700" alt="image" src="https://github.com/user-attachments/assets/7db2f601-a8e4-421e-9527-51dcf06565f9" />
+
+  <img width="701" alt="image" src="https://github.com/user-attachments/assets/295cc931-86af-42c2-bf18-23229713499a" />
+
+
 
 ---
 
