@@ -123,11 +123,11 @@ USE_L10N = True
 USE_TZ = False
 
 # Konfiguracja FTP - wyłączona
-SFTP_HOST = '192.168.1.100'
-SFTP_USER = 'malina1'
-SFTP_PASSWORD = 'raspberry1'
+SFTP_HOST = 'adres'
+SFTP_USER = 'user'
+SFTP_PASSWORD = 'haslo'
 SFTP_DIRECTORY = '/home/malina1/media/magazyn/'
-PRODUCT_IMAGES_URL = 'https://192.168.1.100/media/magazyn/'
+PRODUCT_IMAGES_URL = 'https://adres/media/magazyn/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
