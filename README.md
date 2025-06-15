@@ -147,6 +147,7 @@ System obsługuje również skanowanie przez przeglądarkę mobilną:
 
 System zawiera następujące ekrany:
 - **Ekran powitalny** z instrukcją obsługi
+  
   <img width="699" alt="image" src="https://github.com/user-attachments/assets/820b1171-18cf-42d9-bbf9-b0eb3ede15e4" />
 
 - **Potwierdzenie identyfikatora** pracownika
