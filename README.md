@@ -53,23 +53,38 @@ text
 ## 📁 Struktura projektu
 
 magazynek-3d-system/
-├── raspberry-pi-terminal/ # Aplikacja terminala magazynowego
-│ ├── main.py # Główna logika aplikacji
-│ ├── ui_manager.py # Interfejs Tkinter (pełny ekran)
-│ ├── barcode_scanner.py # Obsługa skanera USB (evdev)
-│ ├── api_connector.py # Komunikacja z Django REST API
-│ ├── logo.png # Logo firmy HKL Dekoracja Okien
-│ └── requirements.txt # Zależności Python
-├── django-backend/ # System webowy Django
-│ ├── wydruki_web_api/ # Główny projekt Django
-│ ├── panel_wydrukow/ # Aplikacja magazynowa
-│ │ ├── models.py # Modele: produkty, pracownicy, pobrania
-│ │ ├── views.py # Widoki API i webowe
-│ │ ├── templates/ # Szablony HTML
-│ │ │ └── scan.html # Strona skanowania mobilnego
-│ │ └── static/ # Pliki statyczne
-│ └── requirements.txt
-└── README.md
+├── raspberry-pi-terminal/        # Aplikacja terminala (Raspberry Pi)
+│   ├── main.py                   # Główna logika aplikacji
+│   ├── ui_manager.py             # Interfejs graficzny Tkinter
+│   ├── barcode_scanner.py        # Obsługa skanera USB
+│   ├── api_connector.py          # Komunikacja z Django API
+│   ├── logo.png                  # Logo 
+│   └── requirements.txt          # Zależności Python
+│
+├── django-backend/               # System webowy (Django)
+│   ├── wydruki_web_api/          # Główny projekt Django
+│   │   ├── settings.py           # Ustawienia Django
+│   │   ├── urls.py               # Konfiguracja URL-i
+│   │   └── wsgi.py               # Punkt wejściowy WSGI
+│   ├── panel_wydrukow/           # Aplikacja magazynowa
+│   │   ├── models.py             # Modele: produkty, pracownicy, pobrania
+│   │   ├── views.py              # Widoki API i webowe
+│   │   ├── templates/            # Szablony HTML
+│   │   │   └── scan.html         # Strona skanowania mobilnego
+│   │   └── static/               # Pliki statyczne (CSS, JS, obrazy)
+│   └── requirements.txt          # Zależności Python dla Django
+│
+├── media-server/                 # Serwer obrazów 
+│   ├── apache-config/            # Konfiguracja Apache HTTPS
+│   └── wydruki/                  # Katalog zdjęć produktów
+│       ├── PROD_001.png          # Zdjęcie produktu PROD_001
+│       ├── FRAME_002.png         # Zdjęcie produktu FRAME_002
+│       └── ...                   # Inne zdjęcia produktów
+│
+├── README-PL.md                  # Dokumentacja po polsku
+├── README-EN.md                  # Dokumentacja po angielsku
+└── .env.example                  # Szablon zmiennych środowiskowych
+
 
 text
 
