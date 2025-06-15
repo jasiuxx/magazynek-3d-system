@@ -153,3 +153,22 @@ System zawiera następujące ekrany:
 - **Obsługa błędów** z jasnymi komunikatami
 
 ---
+
+
+
+## 📄 Licencja
+
+
+### Użycie niekomercyjne
+Kod dostępny jest do wglądu w celach:
+- Edukacyjnych i naukowych
+- Prezentacji umiejętności programistycznych
+- Analizy rozwiązań technicznych
+
+### Użycie komercyjne
+Wykorzystanie komercyjne wymaga pisemnej zgody autora.
+
+### Commercial Licensing
+Commercial use requires written permission. 
+
+
