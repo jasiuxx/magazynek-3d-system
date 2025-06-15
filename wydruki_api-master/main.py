@@ -35,7 +35,7 @@ class MagazynekApp:
             return
 
         # Inicjalizacja skanera kodów kreskowych
-        self.scanner = BarcodeScanner(api_url="https://192.168.1.13:8000/api/scan-barcode/")
+        self.scanner = BarcodeScanner(api_url="https://ADRES/api/scan-barcode/")
         
         # Podłączenie skanera do UI
         self.ui.set_scan_callback(self.set_scanner_callback)
