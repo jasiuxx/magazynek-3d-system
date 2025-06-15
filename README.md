@@ -205,7 +205,8 @@ System zawiera następujące ekrany:
 
 - **Serwer ze zdjeciami**
 
-<img width="451" alt="image" src="https://github.com/user-attachments/assets/9d6d9b23-93a5-45ef-b381-5d32eade06ef" />
+![image](https://github.com/user-attachments/assets/37a9621d-4296-4dac-9ba2-1e3bf901188f)
+
 
 
 # Kierunek rozwoju:
