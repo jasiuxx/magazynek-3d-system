@@ -180,6 +180,41 @@ System zawiera następujące ekrany:
 
   <img width="701" alt="image" src="https://github.com/user-attachments/assets/295cc931-86af-42c2-bf18-23229713499a" />
 
+# Widok webowego systemu
+
+- **Pobranie zarejestrowane w bazie**
+
+  ![image](https://github.com/user-attachments/assets/f619868e-6274-4b4c-8f46-0c2e7f7a0782)
+
+- **Dashboard**
+
+  ![image](https://github.com/user-attachments/assets/b41a67fe-c248-4705-a1dd-bff8fe364fa5)
+
+- **Lista produktów**
+
+![image](https://github.com/user-attachments/assets/43d203a4-a9e7-409c-b1ec-33ec621b0776)
+
+
+- **Dodawanie/edycja produktu**
+
+
+![image](https://github.com/user-attachments/assets/b4b5b546-32e4-458c-bac7-2f7cb75d850b)
+
+- **Serwer ze zdjeciami**
+
+<img width="451" alt="image" src="https://github.com/user-attachments/assets/9d6d9b23-93a5-45ef-b381-5d32eade06ef" />
+
+- **Baza danych**
+
+
+  <img width="530" alt="image" src="https://github.com/user-attachments/assets/5143b3ae-7811-4792-a15e-d4ac905a2c43" />
+
+  <img width="488" alt="image" src="https://github.com/user-attachments/assets/ddafd8c0-317f-4e61-b495-3c1fe0033f11" />
+
+  <img width="713" alt="image" src="https://github.com/user-attachments/assets/35416cfe-eeb1-4f45-beee-f9ee404a39c4" />
+
+
+
 
 
 ---
