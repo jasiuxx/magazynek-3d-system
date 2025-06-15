@@ -149,7 +149,11 @@ System zawiera następujące ekrany:
 - **Ekran powitalny** z instrukcją obsługi
   
   <img width="699" alt="image" src="https://github.com/user-attachments/assets/820b1171-18cf-42d9-bbf9-b0eb3ede15e4" />
+- **Skanowanie przez przeglądarę
 
+  ![image](https://github.com/user-attachments/assets/c68b124b-475b-46bf-9de2-c6bf0b72c5a6)
+
+  
 - **Potwierdzenie identyfikatora** pracownika
 - **Informacje o produkcie** ze zdjęciem
 - **Ekran sukcesu** po potwierdzeniu transakcji
