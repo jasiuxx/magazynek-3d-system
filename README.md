@@ -1,7 +1,7 @@
 
 [🇬🇧 Read in English](README-EN.md)
 
-#Magazyn 360
+# Magazyn 360
 
 Kompletny system do zarządzania magazynem składający się z aplikacji terminalowej (Raspberry Pi) oraz systemu webowego (Django) do administracji magazynem.
 
