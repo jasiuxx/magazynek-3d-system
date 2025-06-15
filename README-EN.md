@@ -81,3 +81,86 @@ magazynek-3d-system/
 ├── README-PL.md                  # Documentation in Polish
 ├── README-EN.md                  # Documentation in English
 └── .env.example                  # Environment variables template
+```
+
+---
+
+## ⚙️ Terminal Application Features
+
+### **User Interface:**
+- **Welcome screen** with step‑by‑step instructions  
+- **Automatic USB scanner detection** with device filtering  
+- **Display of product images** from the image server  
+- **Two‑step employee ID validation**  
+- **Error handling** with messages in Polish  
+- **Application reset** via special code "00"  
+
+### **Technical Components:**
+- `main.py` – orchestrates the application and business logic  
+- `ui_manager.py` – graphical interface with status screens  
+- `barcode_scanner.py` – scanner handling with ASCII code mapping  
+- `api_barcode_scanner.py` – browser‑based scanner support  
+- `api_connector.py` – REST API communication with caching  
+
+---
+
+## 🌐 Django Web System
+
+### **REST API Endpoints:**
+- `POST /api/scan-barcode/` – Save mobile‑scanned barcode  
+- `GET /api/product/<code>/` – Product information  
+- `GET /api/employee/<id>/` – Employee data  
+- `POST /api/terminal/pobranie/` – Register product withdrawal  
+- `GET /api/dashboard/stats/` – System health and statistics  
+
+### **Authorization:**
+All endpoints require the header:
+```
+Authorization: Token <your_token>
+```
+
+### **Admin Panel:**
+- Manage products  
+- View withdrawal history with dates and quantities  
+- Inventory management (add, delete, edit)  
+
+---
+
+## 📱 Mobile Scanning
+
+The system also supports mobile browser scanning:
+- **URL:** `https://your-server:8000/scan/`  
+- **Technology:** HTML5 + ZXing-js  
+- **Supported:** iOS Safari, Android Chrome  
+- **Features:** Camera selection, targeting overlay, error handling  
+
+---
+
+## 📸 Screenshots
+
+The system includes these screens:
+- **Welcome screen** with instructions  
+- **Employee ID confirmation**  
+- **Product scanning**  
+- **Product information** with image  
+- **Transaction confirmation** and success screen  
+- **Error screens** with clear messages  
+
+---
+
+## 🚀 Future Development
+
+Focus on enhancing the Django admin panel so warehouse managers can customize functionality. Aim to make Warehouse 360 as versatile as possible for client needs.
+
+---
+
+## 📄 License
+
+### Non‑Commercial Use
+Code is available for review for:
+- Educational and research purposes  
+- Showcasing programming skills  
+- Technical solution analysis  
+
+### Commercial Use
+Commercial use requires written permission from the author.
