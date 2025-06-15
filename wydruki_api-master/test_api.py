@@ -2,8 +2,8 @@
 import requests
 import json
 
-API_BASE_URL = "http://192.168.1.13:8000/api"
-API_TOKEN = "d0b07394882deab6b4b358c53e429f48c40d40cc"  # Wstaw prawdziwy token
+API_BASE_URL = "http://ADES:8000/api"
+API_TOKEN = "TOKEN"  # Wstaw prawdziwy token
 
 headers = {
     'Authorization': f'Token {API_TOKEN}',
