@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-fuyef3!w5y7!fi)82m%3c!%zg&e*)imujwjh!e20b=%hd56=0#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.1.100','192.168.1.13']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Konfiguracja ścieżki sieciowej do produktów - wyłączona
