@@ -175,8 +175,7 @@ REST_FRAMEWORK = {
 
 
 # CORS - pozwala na połączenia z Raspberry Pi
-CORS_ALLOWED_ORIGINS = [
-    "http://192.168.1.100",  # adres Raspberry Pi
+CORS_ALLOWED_ORIGINS = [ 
     "http://localhost:8000",
     "http://127.0.0.1:8000",
 ]
