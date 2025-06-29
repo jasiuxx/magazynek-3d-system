@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Django
+*.log
+local_settings.py
+settings copy.py
+db.sqlite3
+db.sqlite3-journal
+media/
+wydruki_web_api-main/magazyn_config/settings.py
+staticfiles/
+jak 
+# Wirtualne środowisko
+venv/
+
+# Środowisko IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# System operacyjny
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Inne
+*.env
+.env
+*.bak
+

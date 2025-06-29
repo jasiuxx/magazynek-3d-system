@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <title>Skaner kodów kreskowych - Magazyn Komponentów</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/@zxing/library@latest"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background: #f7f9fa;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    h2 {
+      color: #222;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      font-size: 2em;
+      font-weight: 700;
+    }
+    #scanner-container {
+      display: inline-block;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      padding: 24px 16px 32px 16px;
+      margin-top: 24px;
+      margin-bottom: 24px;
+      min-width: 320px;
+      max-width: 430px;
+      position: relative;
+    }
+    #video {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
+      border: 2px solid #d2d2d2;
+      margin-bottom: 10px;
+      background: #000;
+      position: relative;
+      z-index: 1;
+    }
+    #overlay {
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 220px;
+      height: 220px;
+      border: 3px solid #4CAF50;
+      border-radius: 16px;
+      box-sizing: border-box;
+      pointer-events: none;
+      z-index: 2;
+    }
+    #result {
+      font-size: 1.1em;
+      margin: 18px 0 8px 0;
+      color: #333;
+      min-height: 32px;
+    }
+    #status {
+      font-size: 1em;
+      color: #4CAF50;
+      margin-bottom: 10px;
+      min-height: 24px;
+    }
+    button {
+      font-size: 1em;
+      padding: 6px 16px;
+      border-radius: 5px;
+      border: none;
+      background: #4CAF50;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 5px;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #388e3c;
+    }
+    #send-btn {
+      background: #2196F3;
+      display: none;
+    }
+    #send-btn:hover {
+      background: #1976D2;
+    }
+    #clear-btn {
+      background: #FF9800;
+    }
+    #clear-btn:hover {
+      background: #F57C00;
+    }
+    @media (max-width: 500px) {
+      #scanner-container { min-width: unset; width: 98vw; }
+      #video { max-width: 98vw; }
+      #overlay { width: 60vw; height: 60vw; }
+    }
+  </style>
+</head>
+<body>
+  <h2>Skanuj kod kreskowy kamerą</h2>
+  <div id="scanner-container">
+    <video id="video" autoplay playsinline></video>
+    <div id="overlay"></div>
+    <div id="result"></div>
+    <div id="status">Uruchamianie kamery...</div>
+    <button id="send-btn" onclick="sendScannedCode()">Wyślij kod do magazynu</button>
+    <button id="clear-btn" onclick="clearResult()">Wyczyść</button>
+  </div>
+  <script>
+    // WPISZ SWÓJ TOKEN API TUTAJ (jeśli wymagany przez Django)
+    const API_TOKEN = "token";
+
+    let codeReader = null;
+    let lastScannedCode = null;
+    let isScanning = false;
+    
+    const video = document.getElementById('video');
+    const resultDiv = document.getElementById('result');
+    const statusDiv = document.getElementById('status');
+    const sendBtn = document.getElementById('send-btn');
+    const clearBtn = document.getElementById('clear-btn');
+
+    function sendBarcode(code) {
+      statusDiv.style.color = "#4CAF50";
+      statusDiv.textContent = "Wysyłanie...";
+      
+      fetch('/api/scan-barcode/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(API_TOKEN ? {'Authorization': 'Token ' + API_TOKEN} : {})
+        },
+        body: JSON.stringify({barcode: code})
+      })
+      .then(response => {
+        if (response.ok) {
+          statusDiv.textContent = "Kod wysłany do magazynu!";
+          sendBtn.style.display = "none";
+          // Po wysłaniu wyczyść wynik po 3 sekundach i wznów skanowanie
+          setTimeout(() => {
+            clearResult();
+          }, 3000);
+        } else {
+          statusDiv.style.color = "#e53935";
+          statusDiv.textContent = "Błąd wysyłki!";
+        }
+      })
+      .catch(() => {
+        statusDiv.style.color = "#e53935";
+        statusDiv.textContent = "Błąd połączenia!";
+      });
+    }
+
+    function sendScannedCode() {
+      if (lastScannedCode) {
+        sendBarcode(lastScannedCode);
+      }
+    }
+
+    function clearResult() {
+      resultDiv.textContent = "";
+      statusDiv.textContent = "Gotowy do skanowania...";
+      statusDiv.style.color = "#4CAF50";
+      sendBtn.style.display = "none";
+      lastScannedCode = null;
+      isScanning = true;
+    }
+
+    function startScanner() {
+      codeReader = new ZXing.BrowserMultiFormatReader();
+      
+      // Preferuj tylną kamerę na telefonie
+      const constraints = {
+        video: {
+          facingMode: { exact: "environment" }
+        }
+      };
+      
+      navigator.mediaDevices.getUserMedia(constraints)
+        .then((stream) => {
+          video.srcObject = stream;
+          statusDiv.textContent = "Gotowy do skanowania...";
+          isScanning = true;
+          decodeBarcode();
+        })
+        .catch(() => {
+          // Jeśli nie można wymusić tylnej kamery, użyj domyślnej
+          codeReader
+            .listVideoInputDevices()
+            .then((videoInputDevices) => {
+              if (videoInputDevices.length > 0) {
+                const deviceId = videoInputDevices[0].deviceId;
+                codeReader.decodeFromVideoDevice(deviceId, 'video', (result, err) => {
+                  if (result && isScanning) {
+                    handleScannedCode(result.text);
+                  }
+                  if (err && !(err instanceof ZXing.NotFoundException)) {
+                    console.error('Błąd skanowania:', err);
+                  }
+                });
+                statusDiv.textContent = "Gotowy do skanowania...";
+                isScanning = true;
+              } else {
+                statusDiv.style.color = "#e53935";
+                statusDiv.textContent = "Brak dostępu do kamery!";
+              }
+            })
+            .catch(() => {
+              statusDiv.style.color = "#e53935";
+              statusDiv.textContent = "Błąd dostępu do kamery!";
+            });
+        });
+    }
+
+    function decodeBarcode() {
+      codeReader.decodeFromVideoElementContinuously(video, (result, err) => {
+        if (result && isScanning) {
+          handleScannedCode(result.text);
+        }
+        if (err && !(err instanceof ZXing.NotFoundException)) {
+          console.error('Błąd dekodowania:', err);
+        }
+      });
+    }
+
+    function handleScannedCode(code) {
+      // Sprawdź czy to nowy kod (aby uniknąć wielokrotnego skanowania tego samego)
+      if (code !== lastScannedCode) {
+        lastScannedCode = code;
+        resultDiv.textContent = "Zeskanowano: " + code;
+        statusDiv.textContent = "Kod gotowy do wysłania";
+        sendBtn.style.display = "inline-block";
+        isScanning = false; // Zatrzymaj dalsze skanowanie do czasu podjęcia decyzji
+        
+        // Opcjonalnie: automatycznie wznów skanowanie po 10 sekundach jeśli użytkownik nic nie robi
+        setTimeout(() => {
+          if (!isScanning && lastScannedCode === code) {
+            clearResult();
+          }
+        }, 10000);
+      }
+    }
+
+    // Uruchom skaner po załadowaniu strony
+    window.addEventListener('load', startScanner);
+  </script>
+</body>
+</html>

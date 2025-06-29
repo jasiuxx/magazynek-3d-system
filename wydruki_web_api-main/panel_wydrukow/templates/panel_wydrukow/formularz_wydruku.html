@@ -1,0 +1,65 @@
+{% extends 'panel_wydrukow/base.html' %}
+{% block title %}{{ title }} - Magazyn Komponentów{% endblock %}
+{% block header %}
+<div class="page-header">
+    <h1 class="page-title">
+        <i class="fas fa-edit"></i>
+        {{ title }}
+    </h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <form method="post" enctype="multipart/form-data" class="form-grid" style="display: grid; gap: 1.5rem;">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_kod" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Kod produktu</label>
+            {{ form.kod }}
+        </div>
+        <div class="form-group">
+            <label for="id_opis" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Opis produktu</label>
+            {{ form.opis }}
+        </div>
+        <div class="form-group">
+            <label for="id_ilosc" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Ilość pudełek</label>
+            {{ form.ilosc }}
+        </div>
+        <div class="form-group">
+            <label for="id_szt_w_wor" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Sztuk w pudełku</label>
+            {{ form.szt_w_wor }}
+        </div>
+        <div class="form-group">
+            <label for="id_niski_stan" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Próg niskiego stanu</label>
+            {{ form.niski_stan }}
+        </div>
+        <div class="form-group">
+            <label for="id_zdjecie" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Zdjęcie produktu</label>
+            {{ form.zdjecie }}
+            <small style="display: block; margin-top: 0.5rem; color: var(--text-secondary);">Zdjęcie zostanie nazwane kodem produktu i przesłane na serwer</small>
+        </div>
+        <div class="form-actions" style="display: flex; gap: 1rem; margin-top: 1rem;">
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-save"></i>
+                {% if is_edit %}Zapisz zmiany{% else %}Dodaj produkt{% endif %}
+            </button>
+            <a href="{% url 'panel_wydrukow:lista_wydrukow' %}" class="btn btn-secondary">
+                <i class="fas fa-times"></i>
+                Anuluj
+            </a>
+        </div>
+    </form>
+</div>
+
+{% if is_edit %}
+<div class="card" style="margin-top: 2rem;">
+    <div class="card-header">
+        <h2 class="card-title">Zdjęcie produktu</h2>
+    </div>
+    <div style="text-align: center; padding: 2rem;">
+        <img id="product-image" src="{{ settings.PRODUCT_IMAGES_URL }}{{ wydruk.kod }}.png" alt="Zdjęcie produktu" style="max-width: 300px; border-radius: 0.5rem; box-shadow: var(--shadow);" onerror="this.src='/static/panel_wydrukow/img/no-image.png'; this.onerror=null;">
+        <p style="margin-top: 1rem; color: var(--text-secondary);">Aktualne zdjęcie (jeśli dostępne)</p>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
